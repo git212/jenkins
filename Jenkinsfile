@@ -2,7 +2,7 @@ node{
   stage('SCM Checkout'){
     git 'https://github.com/git212/jenkins'
   }
-  stage('Compile-package'){
+  stage('Compile-Package'){
     sh 'mvn package'
   }
 }
