@@ -18,11 +18,11 @@ pipeline {
             steps {
                 sshagent(['tomcat-dev']) {
                     // stop tomcat
-                    sh "ssh -o StrictHostKeyChecking=no ec2-user@18.188.179.12 /opt/tomcat8/bin/shutdown.sh"
+                    sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.40.190 /opt/tomcat8/bin/shutdown.sh"
                     // copy war file to remote tomcat
-                    sh "scp target/6pmwebapp.war ec2-user@18.188.179.12/opt/tomcat8/webapps/"
+                    sh "scp target/6pmwebapp.war  ec2-user@172.31.40.190:/opt/tomcat8/webapps/"
                     // start tomcat
-                    sh "ssh ec2-user@18.188.179.12 /opt/tomcat8/bin/startup.sh"
+                    sh "ssh ec2-user@172.31.40.190 /opt/tomcat8/bin/startup.sh"
                 }
             }
         }
