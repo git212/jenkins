@@ -22,7 +22,7 @@ pipeline {
                     // copy war file to remote tomcat
                     sh "scp target/6pmwebapp.war ec2-user@18.188.179.12/opt/tomcat8/webapps/"
                     // start tomcat
-                    sh "ssh ec2-user@18.188.179.12 /opt/tomcat8/bin.startup.sh"
+                    sh "ssh ec2-user@18.188.179.12 /opt/tomcat8/bin/startup.sh"
                 }
             }
         }
