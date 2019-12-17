@@ -33,7 +33,7 @@ pipeline{
     }
     post{
         success{
-           mail body: 'Successfully deployed jenkins', from: '', replyTo: '', subject: 'sussfully deployed', to: 'mahantabharat312@gmail.com'
+           mail bcc: '', body: 'Successfully deployed jenkins', cc: '', from: '', replyTo: '', subject: 'sussfully deployed', to: 'mahantabharat312@gmail.com'
         }
 
     }        
