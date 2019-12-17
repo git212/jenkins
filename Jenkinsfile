@@ -20,13 +20,13 @@ pipeline {
         }
         stage ('Deploy dev'){
             steps{
-                sshagent(['tomcat-dev']) {
-                   // to stop tomcat server
-                   sh "ssh -o strictHostKeyChecking=no ec2-user@18.217.237.212 /opt/tomcat/bin/shutdowm.sh"
-                   // copy war file to remote tomcat
-                   sh "scp target/6pmwebapp.war ec2-user@18.217.237.212: /opt/tomcat8/webapps/"
-                   // start tomcat
-                   sh "ssh ec2-user@18.217.237.212 /opt/tomcat/bin/startup.sh"
+                 sshagent(['tomcat-dev']) {
+                    // stop tomcat
+                    sh "ssh -o StrictHostKeyChecking=no ec2-user@18.217.237.212 /opt/tomcat8/bin/shutdown.sh"
+                    // copy war file to remote tomcat
+                    sh "scp target/6pmwebapp.war  ec2-user@18.217.237.212:/opt/tomcat8/webapps/"
+                    // start tomcat
+                    sh "ssh ec2-user@18.217.237.212 /opt/tomcat8/bin/startup.sh"
                 }
             }
         }
