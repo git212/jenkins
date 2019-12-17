@@ -33,8 +33,22 @@ pipeline{
     }
     post{
         success{
-           mail bcc: '', body: 'successfully deployed in jenkins', cc: '', from: '', replyTo: '', subject: 'successfully deployed', to: 'mahantabharat312@gmail.com'
+            mail body: """Hi Team, The app is successfully deployed
+            ${BUILD_URL}
+
+Thanks,
+DevOps Team.
+Java Home""", subject: "${JOB_NAME} - Successfully Deployed", to: 'mahantabharat312@gmail.com'
         }
 
-    }        
+        failure{
+            mail body: """Hi Team, The app deployment failed
+            ${BUILD_URL}
+
+Thanks,
+DevOps Team.
+Java Home""", subject: "${JOB_NAME} - Deployment failed", to: 'mahantabharat312@gmail.com'
+        }
+    }
+        
 }
