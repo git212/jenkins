@@ -33,7 +33,7 @@ pipeline{
     }
     post{
         success{
-            echo "email sent"
+           mail body: 'Successfully deployed jenkins', from: '', replyTo: '', subject: 'sussfully deployed', to: 'mahantabharat312@gmail.com'
         }
 
     }        
