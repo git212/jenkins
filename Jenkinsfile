@@ -30,5 +30,9 @@ pipeline {
                 }
             }
         }
+            post {
+            success {
+                echo "sending email about build success"
+            }
     }
 }
