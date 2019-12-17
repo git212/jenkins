@@ -8,7 +8,7 @@ pipeline {
         stage ('SCM checkout'){
             steps {
                 git branch: "${params['branchName']}",
-                url: 'https://github.com/git212/jenkins/6pmwebapp'
+                url: 'https://github.com/git212/jenkins'
             }
         }
     }
