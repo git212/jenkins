@@ -8,7 +8,7 @@ pipeline {
         stage ('SCM checkout'){
             steps {
                 git credentialsId: 'git-1', 
-                url: 'https://github.com/git212/jenkins',
+                url: 'https://github.com/git212/jenkins.git',
                 branch: 'master'
             }
         }
