@@ -32,11 +32,8 @@ pipeline{
             }
         }
 	}
-	 post {
+  post {
   success {
     echo 'email sent'
   }
 }
-	
-	
-
