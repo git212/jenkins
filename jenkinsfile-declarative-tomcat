@@ -50,5 +50,11 @@ pipeline{
 	  subject: "${JOB_NAME}---successfully deployed", 
 	  to: 'mahantabharat312@gmail.com'
         }
-    }        
+    } 
+    post {
+  failure {
+   echo 'Build failure'
+  }
+}
+       
 }
