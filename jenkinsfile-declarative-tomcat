@@ -31,9 +31,10 @@ pipeline{
                 } 
             }
         }
-	}
-  post {
-  success {
-    echo 'email sent'
-  }
+   }
+  post{
+        success{
+           echo 'email sent'
+        }
+    }        
 }
