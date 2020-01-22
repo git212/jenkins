@@ -34,7 +34,13 @@ pipeline{
    }
   post{
         success{
-           echo 'email sent'
+          mail bcc: '', 
+	  body: 'successfully deploy to jenkins', 
+	  cc: '', 
+	  from: '', 
+	  replyTo: '', 
+	  subject: 'successfully deploy', 
+	  to: 'mahantabharat312@gmail.com'
         }
     }        
 }
