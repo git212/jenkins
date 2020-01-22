@@ -51,8 +51,10 @@ pipeline{
 	  to: 'mahantabharat312@gmail.com'
         }
     } 
+    }
+    }
      failure{
             echo 'Failure'
     }
-        
+      }  
 }
