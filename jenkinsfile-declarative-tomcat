@@ -31,12 +31,12 @@ pipeline{
                 } 
             }
         }
+	}
 	 post {
-  		success {
-   			 echo 'email sent'
- 		 }
-		}
-    }
-   
+  success {
+    echo 'email sent'
+  }
 }
+	
+	
 
