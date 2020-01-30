@@ -1,15 +1,15 @@
 node{
   //tool function returns home location of this tool
-  def mvnHome = tool name: 'maven3', type: 'maven'
+   def mvnHome = tool name: 'maven3', type: 'maven'
     
     stage('scm checkout'){
       git credentialsId: 'git-clone', 
-      url: 'https://github.com/git212/jenkins.git', 
-      branch: 'master'
+            url: 'https://github.com/git212/jenkins.git', 
+            branch: 'master'
     }
     
     stage('maven build'){
-    sh script:”${mvnHome}/bin/mvn clean package”
+      sh script:"${mvnHome}/bin/mvn clean package"
    }
 
  }
