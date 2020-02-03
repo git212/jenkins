@@ -8,7 +8,7 @@ pipline{
             steps{
                 git url:'https://github.com/git212/paractice.git',
                 branch: 'master',
-                git credentialsId: 'git-clone', 
+                credentialsId: 'github' 
         }
     }
 
@@ -22,9 +22,9 @@ pipline{
             steps{
                 sshagent(['tomcat-dev-2']) {
                     // stop tomcat
-                    sh "ssh ec2-user@172.31.39.53 /opt/tomcat8/bin/shurtdown.sh"
+                    sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.39.53 /opt/tomcat8/bin/shutdown.sh"
                     // copy war file to remote tomcat
-                    sh "scp target/6pmwebapp.war ec2-user@172.31.39.53:/opt/tomcat8/webapps"
+                    sh "scp target/6pmwebapp.war ec2-user@172.31.39.53:/opt/tomcat8/webapps/"
                     // start tomcat
                     sh "ssh ec2-user@172.31.39.53 /opt/tomcat8/bin/startup.sh"
                 }
