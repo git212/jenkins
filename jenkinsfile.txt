@@ -1,0 +1,13 @@
+pipeline{
+    agent any
+    stages{
+         stage('SCM checkout'){
+            git credentialsId: 'git-1', 
+            url: 'https://github.com/git212/jenkins.git'
+         }
+
+          stage('Maven build'){
+         sh script: "${mvnHome}/bin/mvn clean package"
+         }
+    }
+}
