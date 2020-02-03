@@ -2,19 +2,23 @@ pipline{
     agent any
     environment{
 	  PATH = "${PATH}:${tool name: 'maven3', type: 'maven'}/bin"
-	}
+    }
     stages{
         stage('scm checkout'){
             steps{
                 git url:'https://github.com/git212/paractice.git',
                 branch: 'master',
+<<<<<<< HEAD
                 credentialsId: 'github' 
+=======
+                git credentialsId: 'git-clone',
+>>>>>>> bac32699edf756ea07f8de8a3f1b8bbc615fa6c3
         }
     }
 
         stage('maven build'){
             steps{
-                sh 'mvn clean package
+                sh 'mvn clean package'
             }
         }
 
