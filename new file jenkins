@@ -1,0 +1,34 @@
+pipline{
+    agent any
+    environment{
+	  PATH = "${PATH}:${tool name: 'maven3', type: 'maven'}/bin"
+	}
+    stages{
+        stage('scm checkout'){
+            steps{
+                git url:'https://github.com/git212/paractice.git',
+                branch: 'master',
+                git credentialsId: 'git-clone', 
+        }
+    }
+
+        stage('maven build'){
+            steps{
+                sh 'mvn clean package
+            }
+        }
+
+        stage('Deploy Dev'){
+            steps{
+                sshagent(['tomcat-dev-2']) {
+                    // stop tomcat
+                    sh "ssh ec2-user@172.31.39.53 /opt/tomcat8/bin/shurtdown.sh"
+                    // copy war file to remote tomcat
+                    sh "scp target/6pmwebapp.war ec2-user@172.31.39.53:/opt/tomcat8/webapps"
+                    // start tomcat
+                    sh "ssh ec2-user@172.31.39.53 /opt/tomcat8/bin/startup.sh"
+                }
+            }
+        }
+    }
+}
