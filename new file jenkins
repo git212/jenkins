@@ -2,7 +2,7 @@ pipline{
     agent any
     environment{
 	  PATH = "${PATH}:${tool name: 'maven3', type: 'maven'}/bin"
-	}
+    }
     stages{
         stage('scm checkout'){
             steps{
@@ -14,7 +14,7 @@ pipline{
 
         stage('maven build'){
             steps{
-                sh 'mvn clean package
+                sh 'mvn clean package'
             }
         }
 
