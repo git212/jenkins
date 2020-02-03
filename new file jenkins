@@ -8,7 +8,7 @@ pipline{
             steps{
                 git url:'https://github.com/git212/paractice.git',
                 branch: 'master',
-                git credentialsId: 'git-clone', 
+                git credentialsId: 'git-clone' 
         }
     }
 
