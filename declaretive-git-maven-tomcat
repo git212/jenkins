@@ -1,10 +1,4 @@
-pipeline {
-    agent any
-    environment {
-        // adding maven to the path
-        PATH = "${PATH}:${tool name: 'maven3', type: 'maven'}/bin"
-    }
-    stages {pipeline{
+pipeline{
     agent any
     environment{
 	  PATH = "${PATH}:${tool name: 'maven3', type: 'maven'}/bin"
@@ -34,22 +28,5 @@ pipeline {
                 } 
             }
         }
-    }
-}
-
-        stage ('SCM checkout'){
-            steps {
-                git credentialsId: 'git-1', C:\Users\Arun\Desktop\bharat\jenkins\declaretive-git-maven-tomcat
-                url: 'https://github.com/git212/jenkins',
-                branch: 'master'
-            }
-        }
-        stage ('Maven build'){
-            steps {
-                sh "mvn clean package"
-                
-            }
-        }
-        
     }
 }
