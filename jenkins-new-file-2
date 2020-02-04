@@ -37,8 +37,8 @@ pipeline{
             ${BUILD_URL}
 
     thanks,
- devops Team
- bharat212""", subject:"${JOB_NAME} 'success to deployed', to: 'mahantabharat312@gmail.com"
+ devops Team.
+ bharat212""", subject: "${JOB_NAME} - success to deployed", to: 'mahantabharat312@gmail.com'
         }
     }
 }
