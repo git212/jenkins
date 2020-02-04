@@ -32,8 +32,8 @@ pipeline{
         }
     }
     post{
-        sucess{
-           echo "sending email about build sucess"
+        success{
+            echo "sending email about build sucess"
 	}
     }
 }
