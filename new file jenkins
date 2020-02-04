@@ -8,13 +8,17 @@ pipeline{
             steps{
                 git url: 'https://github.com/git212/paractice.git',
                 branch: 'master',
+<<<<<<< HEAD
                 credentialsId: 'github'
             }
+=======
+                credentialsId:'github'
+>>>>>>> 2913763e88aa8340205f54c0f4e50ae9ceed55de
         }
 
         stage('Maven Build'){
             steps{
-                sh 'mvn clean package'
+                sh "mvn clean package"
             }
         }
 
