@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('SCM Checkout'){
             steps{
-                git url: 'https://github.com/javahometech/6pmwebapp',
+                git url: 'https://github.com/git212/jenkins.git',
                 branch: 'master',
                 credentialsId: 'github'
             }
@@ -22,22 +22,27 @@ pipeline{
             steps{
                 sshagent(['tomcat-dev']) {
                     // stop tomcat
-                    sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.4.187 /tomcat8/bin/shutdown.sh"
+                    sh "ssh -o StrictHostKeyChecking=no ec2-user@15.206.171.147 /tomcat8/bin/shutdown.sh"
                     // copy war file to remote tomcat
-                    sh "scp target/6pmwebapp.war  ec2-user@172.31.4.187:/tomcat8/webapps/"
+                    sh "scp target/6pmwebapp.war  ec2-user@15.206.171.147:/tomcat8/webapps/"
                     // start tomcat
-                    sh "ssh ec2-user@172.31.4.187 /tomcat8/bin/startup.sh"
+                    sh "ssh ec2-user@15.206.171.147 /tomcat8/bin/startup.sh"
                 } 
             }
         }
     }
     post{
         success{
+<<<<<<< HEAD
             mail  body: '''hi Team, The app is successfull deployed
 
     thanks,
  devops Team
  bharat212''', subject: 'success to deployed', to: 'mahantabharat312@gmail.com'
         }
+=======
+            echo "sending email about build success"
+	}
+>>>>>>> 67c95461839f0ddab9cd6efc2a3dacdbe1438b7c
     }
 }
