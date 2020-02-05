@@ -40,7 +40,7 @@ pipeline{
  devops Team
  bharat212""", subject:"${JOB_NAME} -success to deployed", to: 'mahantabharat312@gmail.com'
         }
-    }
+	
         unstable{
             mail  body: """Hi Team, The app deployement failed
             ${BUILD_URL}
@@ -51,4 +51,4 @@ pipeline{
         }
 
     }
-
+}
