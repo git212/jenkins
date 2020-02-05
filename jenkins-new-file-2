@@ -42,7 +42,7 @@ pipeline{
         }
     }
         unstable{
-            mail  body: """hi Team, The app deployement failed
+            mail  body: """Hi Team, The app deployement failed
             ${BUILD_URL}
 
     thanks,
