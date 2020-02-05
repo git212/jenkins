@@ -5,8 +5,10 @@ pipeline{
     }
     stages{
         stage('scm checkout'){
-           git branch: "${params['branchName']}",
-           url: 'https://github.com/git212/jenkins'
-       }
+            steps{
+                git branch: "${params['branchName']}",
+                    url: 'https://github.com/git212/jenkins'
+            }        
+        }
     }   
 }
