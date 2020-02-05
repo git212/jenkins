@@ -32,7 +32,7 @@ pipeline{
         }
     }
     post{
-        success{
+        failure{
             mail  body: """hi Team, The app is successfull deployed
             ${BUILD_URL}
 
