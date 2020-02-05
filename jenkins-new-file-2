@@ -41,7 +41,7 @@ pipeline{
  bharat212""", subject:"${JOB_NAME} -success to deployed", to: 'mahantabharat312@gmail.com'
         }
     }
-    unstale{
+    unstable{
         mail  body: """hi Team, The app deployement failed
             ${BUILD_URL}
 
