@@ -15,6 +15,7 @@ pipeline{
                 sh "mvn clean package"
             }        
         }
+	
         stage('Deploy -master'){
 	    steps{
 	         echo "deploy to master"
