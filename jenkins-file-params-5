@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    parameters {
+    parameter{
         string defaultValue: 'master', description: 'choose the branch to build and deploy', name: 'branchName', trim: false
     }
     stages{
@@ -10,5 +10,6 @@ pipeline{
                     url: 'https://github.com/git212/jenkins'
             }        
         }
+
     }   
 }

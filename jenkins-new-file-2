@@ -31,28 +31,21 @@ pipeline{
             }
         }
     }
-    post{
-<<<<<<< HEAD
+    post
         success{
-=======
         failure{
->>>>>>> ee5295e26812d9796d3c2c88058119bb246b9349
             mail  body: """hi Team, The app is successfull deployed
             ${BUILD_URL}
 
     thanks,
  devops Team
  bharat212""", subject:"${JOB_NAME} -success to deployed", to: 'mahantabharat312@gmail.com'
-        }
-<<<<<<< HEAD
     }
     unstale{
         mail  body: """hi Team, The app deployement failed
-=======
 	
         unstable{
             mail  body: """Hi Team, The app deployement failed
->>>>>>> ee5295e26812d9796d3c2c88058119bb246b9349
             ${BUILD_URL}
 
     thanks,
