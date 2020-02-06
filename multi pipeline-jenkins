@@ -18,6 +18,7 @@ pipeline{
         stage('Deploy -master'){
 	    steps{
 	         echo "deploy to master"
+	    }
         }
     }
-}        
+}
