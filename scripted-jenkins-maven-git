@@ -14,6 +14,5 @@ node{
     
     stage('Deploy Dev'){
         echo "Deploy to dev - comming son..."
-    }
-    
+    } 
 }
