@@ -16,16 +16,10 @@ pipeline{
             }
         }
         stage('Deploy -bharat'){
-<<<<<<< HEAD
             steps{
                 echo "deploy to bharat server"
             }
             
-=======
-	    steps{
-              sh "mvn clean package"
-            }
->>>>>>> af6aafba1dbec968390c34752b61e344a0414009
         }
     }
 }
