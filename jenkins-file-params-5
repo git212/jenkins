@@ -1,13 +1,16 @@
-pipeline{
+    pipeline{
     agent any
     environment{
 	  PATH = "${PATH}:${tool name: 'maven3', type: 'maven'}/bin"
-        }
+	}
+    stages{
+
        stage('maven build'){
             steps{
               sh "mvn clean package"
             }
         }
+
         stage('Deploy -bharat'){
             when {
                 branch 'develop'
@@ -33,3 +36,4 @@ pipeline{
             }
         }
     }
+}
