@@ -16,7 +16,9 @@ pipeline{
             }
         }
         stage('Deploy -bharat'){
-            
+	    steps{
+              sh "mvn clean package"
+            }
         }
     }
 }
