@@ -1,10 +1,11 @@
 pipeline{
     agent any
     stages{
-        stage('parallel demo'){
-            paralell(
-                task:{
-                    echo "This is task1"
+        stage('parallel Demo'){
+            steps{
+                paralell(
+              task2: {
+                echo "This is task1"
                 },
                 task:2 {
                   echo "This is task2"
