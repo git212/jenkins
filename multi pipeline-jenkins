@@ -1,22 +1,19 @@
 pipeline{
     agent any
     environment{
-	  PATH = "${PATH}:${tool name: 'maven3', type: 'maven'}/bin"
-    stages{
-        stage('scm checkout'){
-            steps{
-                git branch: "${params['branchName']}",
-                    url: 'https://github.com/git212/jenkins'
-            }        
-        }
+      PATH = "${PATH}:${tool name: 'maven3', type: 'maven'}/bin"
+    }
     stages{
         stage('maven build'){
             steps{
                 sh "mvn clean package"
             }        
         }
-        stage('Deploy -dev'){
-            
+	
+        stage('Deploy -master'){
+	    steps{
+	         echo "deploy to master"
+	    }
         }
     }
-}        
+}

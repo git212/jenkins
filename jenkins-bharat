@@ -16,6 +16,9 @@ pipeline{
             }
         }
         stage('Deploy -bharat'){
+            steps{
+                echo "deploy to bharat server"
+            }
             
         }
     }
