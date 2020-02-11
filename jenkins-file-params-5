@@ -31,12 +31,12 @@ peline{
                 echo "deploy to uat server"
        }
     }
-        stage('Deploy -proud'){
+        stage('Deploy -prod'){
             when {
                 branch 'master'
             }
             steps{
-                echo "deploy to proud server"
+                echo "deploy to prod server"
             }
         }
     }
