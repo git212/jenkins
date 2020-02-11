@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('parallel demo'){
             paralell(
-                task: {
+                task:{
                     echo "This is task1"
                 },
                 task:2 {
