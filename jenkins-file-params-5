@@ -7,7 +7,7 @@ pipeline{
                   task1: {
                     echo "This is task1"
                   },
-                  task:2 {
+                  task2: {
                     echo "This is task2"
                   }
                )
