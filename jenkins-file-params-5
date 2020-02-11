@@ -1,4 +1,4 @@
-pipeline{
+peline{
     agent any
     environment{
 	  PATH = "${PATH}:${tool name: 'maven3', type: 'maven'}/bin"
@@ -16,10 +16,28 @@ pipeline{
             }
         }
         stage('Deploy -bharat'){
-            steps{
+            when {
+                branch 'develop'
+            }
+       steps{
                 echo "deploy to bharat server"
             }
-            
+        }
+        stage('Deploy -UAT'){
+            when {
+                branch 'bibhuti'
+            }
+       steps{
+                echo "deploy to uat server"
+       }
+    }
+        stage('Deploy -proud'){
+            when {
+                branch 'master'
+            }
+            steps{
+                echo "deploy to proud server"
+            }
         }
     }
 }
