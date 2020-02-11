@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    parameter{
+        string defaultValue: 'master', description: 'choose the branch to build and deploy', name: 'branchName', trim: false
+    }
+    stages{
+        stage('scm checkout'){
+            steps{
+                git branch: "${params['branchName']}",
+                    url: 'https://github.com/git212/jenkins'
+            }        
+        }
+
+    }   
+}
