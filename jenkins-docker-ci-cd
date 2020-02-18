@@ -17,15 +17,9 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to DevServer'){
+        stage('Deploy to bharat Server'){
             steps{
-                sshagent (credentials: ['dev-server']) {
-				    script{
-					    sh returnStatus: true, script: 'ssh ec2-user@172.31.4.187 docker rm -f nodeapp'
-						def runCmd = "docker run -d -p 8080:8080 --name=nodeapp kammana/nodeapp:${DOCKER_TAG}"
-						sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.4.187 ${runCmd}"
-					}
-				}
+               echo "deploy to bharat server"
             }
         }
     }
