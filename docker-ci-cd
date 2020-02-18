@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    environment{
+        DOCKER_TAG = getDockerTag()
+    }
+    stages{
+        stage('Build Docker Image'){
+            steps{
+                sh "docker build . -t bharat/nodeapp:${DOCKER_TAG} "
+            }
+        }
+        stage('DockerHub Push'){
+            steps{
+                withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
+                    sh "docker login -u bharat -p ${dockerHubPwd}"
+                    sh "docker push bharat/nodeapp:${DOCKER_TAG}"
+                }
+            }
+        }
+        stage('Deploy to bharat Server'){
+            steps{
+                echo "deploying to bharat server"
+            }
+        }
+    }
+}
+
+def getDockerTag(){
+    def tag  = sh script: 'git rev-parse HEAD', returnStdout: true
+    return tag
+}
